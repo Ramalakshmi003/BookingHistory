@@ -47,14 +47,14 @@ export const BookingscreenStyles = StyleSheet.create({
     },
     tabActiveText : {
         color: 'white',
-        fontSize: 17,
+        fontSize: 20,
         fontWeight: 900,
         textAlign: 'center',
         marginTop: 11
     },
     tabText: {
         color: 'black',
-        fontSize: 17,
+        fontSize: 20,
         fontWeight: 900,
         textAlign: 'center',
         marginTop: 11
