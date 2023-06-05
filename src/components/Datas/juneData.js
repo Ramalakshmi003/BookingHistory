@@ -1,35 +1,39 @@
 export const juneData = {
+    "01-12-2023":{
+        "bookingCount":5,
+        "memberName":["sri","jsri","raj", "arun"]
+    },
     "01-06-2023":{
         "bookingCount":5,
-        "memberName":["sri","jsri","raj"]
+        "memberName":["sri","jsri","raj", "ram"]
     },
     "02-06-2023":{
         "bookingCount":4,
-        "memberName":["jsri","raj"]
+        "memberName":["jsri","raj", "iniya"]
     },
     "03-06-2023":{
         "bookingCount":4,
-        "memberName":["jsri","raj"]
+        "memberName":["jsri","raj", "rupa"]
     },
     "04-06-2023":{
         "bookingCount":4,
-        "memberName":["jsri","raj"]
+        "memberName":["jsri","raj", "krish"]
     },
     "05-06-2023":{
         "bookingCount":5,
-        "memberName":["sri","jsri","raj"]
+        "memberName":["sri","jsri","raj","dharani"]
     },
     "06-06-2023":{
         "bookingCount":4,
-        "memberName":["jsri","raj"]
+        "memberName":["jsri","raj", "vaishu"]
     },
     "07-06-2023":{
         "bookingCount":5,
-        "memberName":["sri","jsri","raj"]
+        "memberName":["sri","jsri","raj", "subi"]
     },
     "08-06-2023":{
         "bookingCount":4,
-        "memberName":["jsri","raj"]
+        "memberName":["jsri","raj","sunmathi"]
     },
     "09-06-2023":{
         "bookingCount":5,

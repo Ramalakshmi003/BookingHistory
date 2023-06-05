@@ -59,4 +59,23 @@ export const BookingscreenStyles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 11
     },
+    dataView : {
+        height : 100,
+        width : '90%',
+        justifyContent : 'center',
+        alignSelf : 'center',
+        alignItems : 'center',
+        backgroundColor : 'white',
+        margin : 15,
+        borderRadius : 15
+    },
+    dataHead : {
+        fontSize : 18,
+        fontWeight : 700,
+        color : 'black',
+    },
+    dataText : {
+        fontSize : 16,
+        color : 'green',
+    }
 })

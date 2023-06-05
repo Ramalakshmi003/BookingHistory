@@ -47,32 +47,41 @@ const BookingScreen = () => {
     if (selectedMonth && selectedYear) {
       const numberOfDays = getNumberOfDays(selectedMonth, selectedYear);
       const days = Array.from({ length: numberOfDays }, (_, index) => index + 1);
+
       return (
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {days.map((day) => (
-            <View key={day}>
-              <TouchableOpacity
-                onPress={() => {
-                  handleTabControl(day);
-                  setSelectedDay(day);
-                }}
-                style={
-                  activeTab === day ? BookingscreenStyles.tabActiveBgStyle : BookingscreenStyles.tabBgStyle
-                }
-              >
-                <Text
+          {days.map((day) => {
+            const formattedDate = formatDate(day, selectedMonth, selectedYear);
+            const data = juneData[formattedDate];
+            const bookingCount = data ? data.bookingCount : 0;
+            const memberNames = data ? data.memberName : [];
+
+            return (
+              <View key={day}>
+                <TouchableOpacity
+                  onPress={() => {
+                    handleTabControl(day);
+                    setSelectedDay(day);
+                  }}
                   style={
-                    activeTab === day ? BookingscreenStyles.tabActiveText : BookingscreenStyles.tabText
+                    activeTab === day ? BookingscreenStyles.tabActiveBgStyle : BookingscreenStyles.tabBgStyle
                   }
                 >
-                  {day}
-                </Text>
-              </TouchableOpacity>
-            </View>
-          ))}
+                  <Text
+                    style={
+                      activeTab === day ? BookingscreenStyles.tabActiveText : BookingscreenStyles.tabText
+                    }
+                  >
+                    {day}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            );
+          })}
         </ScrollView>
       );
     }
+
     return null;
   };
 
@@ -80,7 +89,7 @@ const BookingScreen = () => {
     const formattedDay = day < 10 ? `0${day}` : day;
     const formattedMonth = (months.indexOf(month) + 1).toString().padStart(2, '0');
     const thatDay = `${formattedDay}-${formattedMonth}-${year}`
-    return thatDay ;
+    return thatDay;
   };
 
   const selectedDate = formatDate(selectedDay, selectedMonth, selectedYear);
@@ -117,6 +126,14 @@ const BookingScreen = () => {
         <View>
           <Text>Selected Date: {selectedDate}</Text>
         </View>
+        <View>
+          {selectedDay && (
+            <View style = {BookingscreenStyles.dataView}>
+              <Text style = {BookingscreenStyles.dataHead}>Booking Count: <Text style = {BookingscreenStyles.dataText}>{juneData[selectedDate]?.bookingCount || 0}</Text></Text>
+              <Text style = {BookingscreenStyles.dataHead}>Member Names: <Text style = {BookingscreenStyles.dataText}>{juneData[selectedDate]?.memberName?.join(', ') || 'No members'}</Text></Text>
+            </View>
+          )}
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -127,6 +144,38 @@ export default BookingScreen;
 
 
 
+  // const renderDays = () => {
+  //   if (selectedMonth && selectedYear) {
+  //     const numberOfDays = getNumberOfDays(selectedMonth, selectedYear);
+  //     const days = Array.from({ length: numberOfDays }, (_, index) => index + 1);
+  //     return (
+  //       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+  //         {days.map((day) => (
+  //           <View key={day}>
+  //             <TouchableOpacity
+  //               onPress={() => {
+  //                 handleTabControl(day);
+  //                 setSelectedDay(day);
+  //               }}
+  //               style={
+  //                 activeTab === day ? BookingscreenStyles.tabActiveBgStyle : BookingscreenStyles.tabBgStyle
+  //               }
+  //             >
+  //               <Text
+  //                 style={
+  //                   activeTab === day ? BookingscreenStyles.tabActiveText : BookingscreenStyles.tabText
+  //                 }
+  //               >
+  //                 {day}
+  //               </Text>
+  //             </TouchableOpacity>
+  //           </View>
+  //         ))}
+  //       </ScrollView>
+  //     );
+  //   }
+  //   return null;
+  // };
 
 // import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 // import React, { useState } from 'react'
